@@ -716,7 +716,7 @@ transformData = function(parametersToTransform = NULL)
 
   filesToOpen = dir(file.path("rds"), full.names = TRUE)
 
-  coresNumber = parallel::detectCores() - 1
+  coresNumber = parallelly::availableCores() - 1
 
   cl = parallel::makeCluster(coresNumber, type = "PSOCK")
   doSNOW::registerDoSNOW(cl)
@@ -827,7 +827,7 @@ exportPerParameter = function(parametersToExport = NULL, nCoresToExploit = NULL)
     coresNumber = nCoresToExploit
   } else
   {
-    coresNumber = parallel::detectCores() - 1
+    coresNumber = parallelly::availableCores() - 1
   }
 
   cl = parallel::makeCluster(coresNumber, type = "PSOCK")
