@@ -62,7 +62,7 @@ determineOptimalUMAPParameters = function(data = NULL, nNeighborsToTest = NULL, 
     data = data[sample(nrow(data), downsample), ]
   }
 
-  coresNumber = parallel::detectCores() - 1
+  coresNumber = parallelly::availableCores() - 1
   set.seed(42)
 
   plotsList = list()
