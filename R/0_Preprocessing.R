@@ -86,12 +86,12 @@ convertToRDS = function(conversionTable = NULL)
   fcs.dir = file.path(workingDirectory, "input")
   filesToOpen = dir(fcs.dir, full.names = TRUE)
 
-  if (parallel::detectCores() == 1)
+  if (parallelly::availableCores() == 1)
   {
     coresNumber = 1
   } else
   {
-    coresNumber = parallel::detectCores() - 1
+    coresNumber = parallelly::availableCores() - 1
   }
 
   cl = parallel::makeCluster(coresNumber, type = "PSOCK")
