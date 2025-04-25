@@ -46,7 +46,7 @@ plotFacets = function(parametersToPlot = NULL, maxSamplesNbPerPage = 10, folder 
 
   } else
   {
-    coresNumber = parallel::detectCores() - 1
+    coresNumber = parallelly::availableCores() - 1
   }
 
   cl = parallel::makeCluster(coresNumber, type = "PSOCK")
@@ -200,7 +200,7 @@ analyzePeaks = function(parametersToAnalyze = NULL, max.lms.sequence = NULL, suf
     coresNumber = nCoresToExploit
   } else
   {
-    coresNumber = parallel::detectCores() - 1
+    coresNumber = parallelly::availableCores() - 1
   }
 
   cl = parallel::makeCluster(coresNumber, type = "PSOCK")
@@ -701,7 +701,7 @@ normalizeData = function(try = TRUE, max.lms.sequence = NULL, suffix = NULL, bas
     coresNumber = nCoresToExploit
   } else
   {
-    coresNumber = parallel::detectCores() - 1
+    coresNumber = parallelly::availableCores() - 1
   }
 
   cl = parallel::makeCluster(coresNumber, type = "PSOCK")
