@@ -26,7 +26,6 @@ Imports:
   methods,
   plotly,
   rlang,
-  #tcltk,
   shiny,
   utils,
   stats,
